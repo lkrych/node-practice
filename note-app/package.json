@@ -1,0 +1,13 @@
+{
+  "name": "note-app",
+  "version": "1.0.0",
+  "description": "Simple Note App to practice node",
+  "main": "app.js",
+  "author": "Leland Krych <Leland.Krych@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "nodemon": "^1.11.0",
+    "yargs": "^8.0.2"
+  }
+}
