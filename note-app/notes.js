@@ -32,17 +32,21 @@ var addNote = (title, body)=> {
 };
 
 var getAll = () => {
-  console.log("Getting all notes");
+  var notes = fetchNotes();
+  return notes;
 };
 
 var readNote = (title) => {
-  console.log("Reading note", title);
+  var notes = fetchNotes();
+  var noteToRead = notes.filter((note) => note.title === title);
+  return noteToRead;
 };
 
 var removeNote = (title) => {
   var notes = fetchNotes();
   var filteredNotes = notes.filter((note) =>  note.title !== title);
   saveNotes(filteredNotes);
+  return notes.length !== filteredNotes.length;
 };
 
 module.exports = {
