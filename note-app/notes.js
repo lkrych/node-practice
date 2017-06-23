@@ -39,7 +39,7 @@ var getAll = () => {
 var readNote = (title) => {
   var notes = fetchNotes();
   var noteToRead = notes.filter((note) => note.title === title);
-  return noteToRead;
+  return noteToRead.pop();
 };
 
 var removeNote = (title) => {
