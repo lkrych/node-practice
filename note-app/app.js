@@ -12,9 +12,7 @@ let command = argv._[0];
 if (command === "add"){
   var note = notes.addNote(argv.title, argv.body);
   if(note){
-    console.log(`Your new note ---`);
-    console.log(` title: ${note.title}, body: ${note.body}`);
-    console.log(`---`);
+    notes.logNote(note);
   } else {
     console.log("Note title already exists");
   }
@@ -23,9 +21,7 @@ if (command === "add"){
 } else if (command === "read"){
   var note = notes.readNote(argv.title);
   if(note){
-    console.log(`Your note ---`);
-    console.log(` title: ${note.title}, body: ${note.body}`);
-    console.log(`---`);
+    notes.logNote(note);
   }else{
     console.log(`That note with title ${argv.title} wasn't found`);
   }
