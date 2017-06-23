@@ -6,6 +6,7 @@
   "author": "Leland Krych <Leland.Krych@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "global": "^4.3.2",
     "lodash": "^4.17.4",
     "nodemon": "^1.11.0",
     "yargs": "^8.0.2"

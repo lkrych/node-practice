@@ -1,6 +1,8 @@
 // practice debugging
 
 //to enter debug: node inspect debugging.js
+//to enter debug with chrome node --inspect-brk debugging.js
+// go to chrome and type chrome://inspect into searchbar
 
 //handy functions in debug mode = n, c, repl
 
