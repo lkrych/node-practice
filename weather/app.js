@@ -20,14 +20,14 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
   if (errorMessage){
     console.log(errorMessage);
   } else {
-    console.log(JSON.stringify(results, undefined, 2));
-  }
-});
-
-forecast.getForecast(37.801372, -122.4243798, (errorMessage, weatherResults) => {
-  if (errorMessage){
-    console.log(errorMessage);
-  }else {
-    console.log(JSON.stringify(weatherResults, undefined, 2));
+    console.log(results.address);
+    forecast.getForecast(results.latitude, results.longitude, (errorMessage, weatherResults) => {
+      if (errorMessage){
+        console.log(errorMessage);
+      }else {
+        console.log(`It's currently ${weatherResults.temperature},
+         but it feels like ${weatherResults.apparentTemperature}.`);
+      }
+    });
   }
 });
