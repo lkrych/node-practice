@@ -14,3 +14,14 @@ const argv = yargs
   .help()
   .alias('help', 'h')
   .argv;
+
+var encodedAddress = encodeURIComponent(argv.address);
+var geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`;
+
+axios.get(geocodeURL).then((response) => {
+  console.log(response.data);
+}).catch((e) => {
+  if(e.code === "ENOTFOUND"){
+    console.log("Unable to connect to API servers");
+  }
+});
