@@ -2,6 +2,8 @@ const express = require('express');
 
 var app = express();
 
+//serve static files found in public folder
+app.use(express.static(__dirname + '/public'));
 app.get('/', (request, response) =>{
   response.send({
     name: 'Fideo',
@@ -22,4 +24,6 @@ app.get('/bad', (request, response) => {
   });
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+  console.log('Server is up on port 3000');
+});
