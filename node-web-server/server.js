@@ -3,14 +3,19 @@ const hbs = require('hbs');
 
 var app = express();
 
+hbs.registerPartials(__dirname + '/views/partials');
 //set express related configurations
 app.set('view engine', 'hbs');
 //serve static files found in public folder
 app.use(express.static(__dirname + '/public'));
+
+hbs.registerHelper('getCurrentYear', () => {
+  return new Date().getFullYear();
+});
+
 app.get('/', (request, response) =>{
   response.render('home.hbs', {
     pageTitle: 'Home Page',
-    currentYear: new Date().getFullYear(),
     welcomeMessage: "Welcome to Fideos Page!"
   });
 });
@@ -18,7 +23,6 @@ app.get('/', (request, response) =>{
 app.get('/about', (request, response) => {
   response.render('about.hbs', {
     pageTitle: 'About Page',
-    currentYear: new Date().getFullYear()
   });
 });
 
