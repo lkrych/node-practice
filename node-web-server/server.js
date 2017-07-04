@@ -8,17 +8,18 @@ app.set('view engine', 'hbs');
 //serve static files found in public folder
 app.use(express.static(__dirname + '/public'));
 app.get('/', (request, response) =>{
-  response.send({
-    name: 'Fideo',
-    likes: [
-      'noodles',
-      'chicken'
-    ]
+  response.render('home.hbs', {
+    pageTitle: 'Home Page',
+    currentYear: new Date().getFullYear(),
+    welcomeMessage: "Welcome to Fideos Page!"
   });
 });
 
 app.get('/about', (request, response) => {
-  response.render('about.hbs');
+  response.render('about.hbs', {
+    pageTitle: 'About Page',
+    currentYear: new Date().getFullYear()
+  });
 });
 
 app.get('/bad', (request, response) => {
