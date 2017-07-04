@@ -1,7 +1,10 @@
 const express = require('express');
+const hbs = require('hbs');
 
 var app = express();
 
+//set express related configurations
+app.set('view engine', 'hbs');
 //serve static files found in public folder
 app.use(express.static(__dirname + '/public'));
 app.get('/', (request, response) =>{
@@ -15,7 +18,7 @@ app.get('/', (request, response) =>{
 });
 
 app.get('/about', (request, response) => {
-  response.send('About page.');
+  response.render('about.hbs');
 });
 
 app.get('/bad', (request, response) => {
