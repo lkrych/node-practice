@@ -9,6 +9,15 @@ app.set('view engine', 'hbs');
 //serve static files found in public folder
 app.use(express.static(__dirname + '/public'));
 
+//create custom middleware
+app.use((request, response, next) => {
+  var now = new Date().toString();
+
+  console.log(`${now}: ${request.method} ${request.url}`);
+  next();
+});
+
+
 hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear();
 });
