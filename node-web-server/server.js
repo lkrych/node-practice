@@ -7,8 +7,6 @@ var app = express();
 hbs.registerPartials(__dirname + '/views/partials');
 //set express related configurations
 app.set('view engine', 'hbs');
-//serve static files found in public folder
-app.use(express.static(__dirname + '/public'));
 
 //create custom middleware
 app.use((request, response, next) => {
@@ -24,6 +22,14 @@ app.use((request, response, next) => {
   next();
 });
 
+//maintenance middleware, stops everything from being executed.
+// next isn't called!
+app.use((request, response, next) => {
+  response.render('maintenance.hbs');
+});
+
+//serve static files found in public folder
+app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear();
