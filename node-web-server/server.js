@@ -24,9 +24,9 @@ app.use((request, response, next) => {
 
 //maintenance middleware, stops everything from being executed.
 // next isn't called!
-app.use((request, response, next) => {
-  response.render('maintenance.hbs');
-});
+// app.use((request, response, next) => {
+//   response.render('maintenance.hbs');
+// });
 
 //serve static files found in public folder
 app.use(express.static(__dirname + '/public'));
