@@ -5,7 +5,7 @@ var app = require('./server').app;
 
 describe('Server', () => {
 
-  describe("#GET /", () => {
+  describe("GET /", () => {
     it('should return Hello world! response', (done) => {
       request(app)
         .get('/')
