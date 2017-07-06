@@ -16,3 +16,13 @@ it('should expect some values', () => {
   // They are not the exact same object. They have the same properties
   expect({name: 'Fideo'}).toEqual({name: 'Fideo'});
 });
+
+it('Should set the first and last name of a user', () => {
+  var user = {firstName: 'Bill',
+              lastName: 'Toll'};
+  expect(user.firstName).toBe('Bill');
+  expect(user.lastName).toBe('Toll');
+  utils.setName(user, "George Pataki");
+  expect(user.firstName).toBe('George');
+  expect(user.lastName).toBe('Pataki');
+});
