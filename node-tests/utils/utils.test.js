@@ -6,6 +6,14 @@ it('Should add two numbers.', () => {
   expect(res).toBe(44).toBeA('number');
 });
 
+//done argument tells mocha that the test is aync
+it('Should add two numbers asynchronously.', (done) => {
+  var res = utils.asyncAdd(4,3, (sum) => {
+    expect(sum).toBe(7).toBeA('number');
+    done(); // exits mocha
+  });
+});
+
 it('Should square a number.', () => {
   var res = utils.square(9);
   expect(res).toBe(81).toBeA('number');
