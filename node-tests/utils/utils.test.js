@@ -19,6 +19,13 @@ it('Should square a number.', () => {
   expect(res).toBe(81).toBeA('number');
 });
 
+it('Should square a number asynchronously.', (done) => {
+  var res = utils.asyncSquare(4, (square) => {
+    expect(square).toBe(16).toBeA('number');
+    done(); // exits mocha
+  });
+});
+
 it('should expect some values', () => {
   // expect({name: 'Fideo'}).toBe({name: 'Fideo'}); This will fail
   // They are not the exact same object. They have the same properties
