@@ -38,9 +38,8 @@ var id = "596bd20bcae8a10a27048fe3";
 User.findById(id).then((user) => {
   if(!user){
     return console.log("ID not found.");
-
   }
   console.log('User by Id', user);
-}).catch((e) => {
-  return console.log(e);
+}, (e) => {
+  console.log(e);
 });
