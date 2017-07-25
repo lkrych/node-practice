@@ -1,13 +1,27 @@
 const path = require('path'); //built in module
+const http = require('http');
 const express = require('express');
+const socketIO = require('socket.io');
 
 const publicPath = path.join(__dirname, '../public');
 const port = process.env.PORT || 3000;
-var app = express();
 
-//serve assets from public folder
+//need to configure server to use sockets
+var app = express();
+var server = http.createServer(app);
+var io = socketIO(server);
+
+//serve assets from public folder using static middleware
 app.use(express.static(publicPath));
 
-app.listen(port, () => {
+io.on('connection', (socket) => {
+  console.log('New user connected');
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected from server.');
+  });
+});
+
+server.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
