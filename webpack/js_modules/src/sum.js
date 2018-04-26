@@ -1,3 +1,2 @@
-const sum = (a, b) => a + b;
+export const sum = (a, b) => a + b;
 
-module.exports = sum; //commonJS module system
