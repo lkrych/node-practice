@@ -5,7 +5,13 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'build'), //must be absolute path, __dirname is a constant in nodeJS, a reference to cwd
     filename: 'bundle.js'
-  }
+  },
+  module: {
+    rules: [
+      {test: /\.js$/, use: 'babel-loader'}
+    ]
+  },
+  mode: "production"
 };
 
 module.exports = config;
